@@ -62,8 +62,10 @@ async def on_message(message):
             afk[f'{message.author.id}']['AFK'] = 'False'
             with open('afk.json', 'w') as f:
                 json.dump(afk, f)
-            await message.author.edit(nick=f'{message.author.display_name[5:]}')
-
+			try:
+				await message.author.edit(nick=f'{message.author.display_name[5:]}')
+			except Exceptions as err:
+				print(f'Something is wrong: {err}')
     with open('afk.json', 'w') as f:
         json.dump(afk, f)
 
@@ -91,9 +93,10 @@ async def afk(ctx, reason=None):
 
     with open('afk.json', 'w') as f:
         json.dump(afk, f)
-
-    await ctx.author.edit(nick=f'[AFK]{ctx.author.display_name}')
-
+	try:
+		await ctx.author.edit(nick=f'[AFK]{ctx.author.display_name}')
+	except Exceptions as err:
+		print(f'Something is wrong: {err}')
 
 @client.command()
 async def randomword(ctx):
@@ -115,4 +118,4 @@ async def testembed(ctx):
     await ctx.send(embed=embed)
 
 
-client.run('NzY0MTc1ODY0NzI0MTkzMjkw.X4CcOw.AVSfraF_Y8VBoJEFprPD2aj-qLU')
+client.run('a') # Token Here lol
