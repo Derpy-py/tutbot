@@ -1,2 +1,2 @@
 # tutbot but better
-> this is the simple tutbot but i made some changes cuz why not, if derpy decides to merge ofc. 
+> this is the simple tutbot from YT. iMatt1n made some cool changes too.
